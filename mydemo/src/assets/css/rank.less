@@ -1,0 +1,132 @@
+.rank{
+    width: 7.5rem;
+    box-sizing: border-box;
+    .newList{
+        .head{
+            position: relative;
+            top: -0.03rem;
+            width: 100%;
+            height:2.91rem ;
+            font-size: 0.34rem;
+            line-height: 1.2rem;
+            background: url('../images/hot_music_bg_2x.jpg') no-repeat;
+            background-size: cover;
+            .hot{
+                position: absolute;
+                z-index: 2;
+                top: 0.5rem;
+                left: 0.4rem;
+                width: 3rem;
+                height: 1.5rem;
+                background: url('../images/index_icon_2x.png') no-repeat;
+                background-position: -0.48rem -0.6rem;
+            }
+            .date{
+                position: absolute;
+                z-index: 2;
+                top: 1.7rem;
+                left: 0.4rem;
+                font-size: 0.28rem ;
+                color: #fff;
+            }
+            &:after {
+                content: " ";
+                position: absolute;
+                width: 100%;
+                height:2.91rem ;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                z-index: 1;
+                background-color: rgba(0,0,0,.2);
+            }
+            
+            
+        }
+        ul{
+            width: 100%;
+            background-color: #fff;
+            li{
+                width: 100%;
+                height: 1.1rem;
+                border-bottom:0.5px solid rgba(0,0,0,.15) ;
+                margin-left:0.8rem ;
+                color: #333;
+                box-sizing: border-box;
+                &:first-of-type{
+                    .left{
+                        color: #d43c33;
+                    }
+                }
+                &:nth-of-type(2){
+                    .left{
+                        color: #d43c33;
+                    }
+                    
+                }
+                &:nth-of-type(3){
+                    .left{
+                        color: #d43c33;
+                    }
+                }
+                .left{
+                    width: 0.8rem;
+                    float: left;
+                    margin-left: -0.8rem;
+                    line-height: 1rem;
+                    padding: 0 0.2rem;
+                    box-sizing: border-box;
+                    font-size: 0.34rem;
+                    color: #999;
+                    
+                }
+                .center{
+                    float: left;
+                    width:5.7rem ;
+                    overflow: hidden;
+                    height: 1.1rem;
+                    .title{
+                        width: 5.7rem;
+                        overflow: hidden;
+                        font-size: 0.34rem;
+                        line-height: 0.7rem;
+                    }
+                    .des{
+                        color: #888;
+                        font-size: 12px;
+                        i{
+                            display: inline-block;
+                            width:0.28rem ;
+                            height:0.18rem ;
+                            background: url('../images/index_icon_2x.png') no-repeat;
+                            margin-right: 0.1rem;
+
+                        }
+                    }
+                }
+                .right{
+                    width: 0.9rem ;
+                    float: right;
+                    height: 1.1rem;
+                    box-sizing: border-box;
+                    margin-right: 0.6rem;
+                    span{
+                        display: inline-block;
+                        width:0.48rem ;
+                        height:0.46rem ;
+                        // line-height: 0.55rem;
+                        margin: 0.33rem auto;
+                        background: url('../images/index_icon_2x.png') no-repeat;
+                        background-position: -0.48rem 0;
+                        // background-size: contain;
+                    }
+
+                }
+                
+                
+            }
+        }
+    }
+    
+}

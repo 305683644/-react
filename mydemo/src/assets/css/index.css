@@ -1,0 +1,54 @@
+.index {
+  width: 7.5rem;
+}
+.index .head {
+  padding: 0 0.2rem;
+  box-sizing: border-box;
+  width: 100%;
+  height: 1.68rem;
+  line-height: 1.68rem;
+  background-color: #d43c33;
+}
+.index .head h1 {
+  float: left;
+}
+.index .head .right {
+  float: right;
+  text-align: center;
+  width: 2rem;
+  height: 0.72rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  margin-top: 0.48rem;
+  color: #d43c33;
+  font-size: 0.32rem;
+}
+.index .head .right p {
+  line-height: 0.75rem;
+}
+.index .nav {
+  box-sizing: border-box;
+  width: 100%;
+  height: 0.8rem;
+  line-height: 0.8rem;
+  background-color: #fff;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+  display: flex;
+  font-size: 0.305rem;
+  color: #333;
+}
+.index .nav li {
+  flex: 1;
+  text-align: center;
+}
+.index .nav li a {
+  display: inline-block;
+  box-sizing: border-box;
+  line-height: 0.68rem;
+  padding: 0 0.1rem;
+  color: #333;
+}
+.index .nav li a.select {
+  color: #e6180d;
+  border-bottom: 0.045rem solid #e6180d;
+}
