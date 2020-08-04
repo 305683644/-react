@@ -1,6 +1,14 @@
 .home {
   width: 7.5rem;
+  overflow: hidden;
   box-sizing: border-box;
+}
+.home .swiper-container {
+  width: 100%;
+  height: 100%;
+}
+.home .swiper-container img {
+  width: 100%;
 }
 .home .recomList .head {
   width: 100%;
@@ -41,9 +49,9 @@
   height: 2.44rem;
 }
 .home .recomList ul li p {
-  height: 0.72rem;
+  height: 0.7rem;
   padding: 0.15rem 0.1rem 0;
-  line-height: 0.32rem;
+  line-height: 0.33rem;
   overflow: hidden;
 }
 .home .recomList ul li .count {
@@ -92,10 +100,19 @@
   height: 1.1rem;
 }
 .home .newList ul li .left .title {
+  width: 6.46rem;
+  height: 0.7rem;
+  overflow: hidden;
   font-size: 0.34rem;
   line-height: 0.7rem;
 }
+.home .newList ul li .left .title span {
+  color: #888;
+}
 .home .newList ul li .left .des {
+  width: 6.46rem;
+  height: 0.28rem;
+  overflow: hidden;
   color: #888;
   font-size: 12px;
 }

@@ -1,117 +1,92 @@
 import React from 'react';
 import '../assets/css/home.css'
 import '../assets/font/iconfont.css'
+//引入axios库
+import axios from 'axios'
+//引入swipercss
+import 'swiper/css/swiper.min.css'
+import 'swiper/js/swiper.min.js'
+//调用swiper插件
+import Swiper from 'swiper'
+//引入接口
+import { personalized, getBanner, getNewSongs } from '../util/axios'
 
 class Home extends React.Component{
   constructor(){
       super()
       this.state={
         url:require('../assets/images/bottomlogo.png'),
-        recomList:[
-            {
-                id:1,
-                title:'2020上半年最受欢迎日语新歌',
-                imgUrl:require('../assets/images/1.jpg'),
-                count:99.5,
-            },
-            {
-                id:2,
-                title:'盛夏白瓷梅子汤，碎冰碰壁铛啷响',
-                imgUrl:require('../assets/images/2.jpg'),
-                count:99.5,
-            },
-            {
-                id:3,
-                title:'伤感片段:夜和你都在熬我',
-                imgUrl:require('../assets/images/3.jpg'),
-                count:99.5,
-            },
-            {
-                id:4,
-                title:'打野BGM［游戏专用］',
-                imgUrl:require('../assets/images/4.jpg'),
-                count:99.5,
-            },
-            {
-                id:5,
-                title:'宝藏857蹦迪DJ',
-                imgUrl:require('../assets/images/5.jpg'),
-                count:99.5,
-            },
-            {
-                id:6,
-                title:'中文DJ（电摇版）（车载DJ）开车驾车必听',
-                imgUrl:require('../assets/images/6.jpg'),
-                count:99.5,
-            },
-        ],
-        newList:[
-            {
-                songsId:1,
-                title:'致我们终将逝去的青春 (2020重唱版)',
-                singer:'张靓颖',
-                album:'致我们终将逝去的青春'
-            },
-            {
-                songsId:2,
-                title:'晚来天欲雪',
-                singer:'恋恋故人难',
-                album:' 云の泣'
-            },
-            {
-                songsId:3,
-                title:'先知',
-                singer:'田馥甄',
-                album:'先知'
-            },
-            {
-                songsId:4,
-                title:'我行我素我爱你',
-                singer:'郁可唯',
-                album:'我行我素我爱你'
-            },
-            {
-                songsId:5,
-                title:'星星之火',
-                singer:'罗云熙',
-                album:'星星之火'
-            },
-            {
-                songsId:6,
-                title:'睹物思人',
-                singer:'武艺',
-                album:'睹物思人'
-            },
-            {
-                songsId:7,
-                title:'如果我是海',
-                singer:'李荣浩',
-                album:'麻雀'
-            },
-            {
-                songsId:8,
-                title:'祝我快乐',
-                singer:'汪苏泷',
-                album:'祝我快乐'
-            },
-            {
-                songsId:9,
-                title:'尘埃',
-                singer:'董家鸿',
-                album:'尘埃'
-            },
-            {
-                songsId:10,
-                title:'PARADISE',
-                singer:'河成云',
-                album:'PARADISE'
-            }
-        ]
+        recomList:[],
+        newList:[],
+        bannerList:[],
+        countList:[]
       }
   }
+  componentDidMount(){
+    axios.all([personalized({limit:6}),getBanner(),getNewSongs()])
+    .then(axios.spread((recomList,bannerList,newList)=> {
+        if(bannerList.code===200){
+            let banners=bannerList.banners.filter((item,i)=>i<4)  
+            this.setState({
+                bannerList:banners
+             },()=>{
+                 let swiper=new Swiper('.swiper-container',{
+                     autoplay:{
+                         delay:2000,
+                         disableOnInteraction: false,
+                     },
+                     loop:true,
+                     pagination:{
+                        el: '.swiper-pagination' 
+                     }
+                 })
+             })     
+        }
+        if(recomList.code===200){
+            this.setState({
+               recomList:recomList.result 
+            })
+        }
+        if(newList.code===200){
+            this.setState({
+                newList:newList.result 
+            })
+        }
+    })
+  )
+}
+changeNum(num){
+    let numStr = num.toString()
+    // 十万以内直接返回
+    if (numStr.length < 6) {
+    return numStr;
+    }
+    //大于8位数是亿
+    else if (numStr.length > 8) {
+    let decimal = numStr.substring(numStr.length - 8, numStr.length - 8 + 1);
+    return parseFloat(parseInt(num / 100000000) + '.'+ decimal) + '亿';
+    }
+    //大于6位数是十万 (以10W分割 10W以下全部显示)
+    else if (numStr.length > 5) {
+    let decimal = numStr.substring(numStr.length - 4, numStr.length - 4 + 1)
+    return parseFloat(parseInt(num / 10000) + '.' + decimal) + '万';
+    }
+}
   render(){
-    const {recomList,newList,url}=this.state
+    const {recomList,newList,url,bannerList}=this.state
     return(<div className="home">
+         <div className="swiper-container">
+            <div className="swiper-wrapper">
+                {
+                    bannerList.map(item => {
+                        return <div key={item.imageUrl} className="swiper-slide">
+                            <img className='imgUrl' src={item.imageUrl} alt="" />
+                        </div>
+                    })
+                }
+            </div>
+            <div className="swiper-pagination"></div>
+        </div>
         <div className="recomList">
             <div className="head">
                <i></i><h2>推荐歌单</h2> 
@@ -121,9 +96,14 @@ class Home extends React.Component{
                 {
                     recomList.map(item=>{
                         return <li  key={item.id}>
-                                    <img src={item.imgUrl} alt=""/>
-                                    <p>{item.title}</p>
-                                    <p className='count'><i className='iconfont icon-V'></i>{item.count}万</p>
+                                    <img src={item.picUrl} alt=""/>
+                                    <p>{item.name}</p>
+                                    <p className='count'>
+                                        <i className='iconfont icon-V'></i>
+                                        <span>
+                                        {this.changeNum(item.playCount)}
+                                        </span>
+                                        </p>
                                 </li>
                     })
                 }
@@ -137,10 +117,26 @@ class Home extends React.Component{
             <ul>
                 {
                     newList.map(item=>{
-                        return <li className="clearfix" key={item.songsId}>
+                        return <li className="clearfix" key={item.id}>
                                     <div className="left">
-                                       <p className="title">{item.title}</p>
-                                        <p className='des'><i></i>{item.singer} - {item.album}</p> 
+                                       <p className="title">{item.song.name}
+                                       {
+                                            item.song.alias ?
+                                            item.song.alias.map(item => {
+                                            return <span key={item}>({item})</span>
+                                            }):""
+                                       }
+                                       
+                                       </p>
+                                        <p className='des'><i></i>
+                                        {
+                                          item.song.artists ?
+                                          item.song.artists.map(item => {
+                                          return <span key={item.id}>{item.name}&nbsp;</span>
+                                          })
+                                          : ''  
+                                        }
+                                        - {item.song.album.name}</p> 
                                     </div>
                                     <div className="right">
                                         <span></span>

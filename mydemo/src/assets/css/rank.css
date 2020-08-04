@@ -1,10 +1,10 @@
 .rank {
   width: 7.5rem;
+  overflow: hidden;
   box-sizing: border-box;
 }
 .rank .newList .head {
   position: relative;
-  top: -0.03rem;
   width: 100%;
   height: 2.91rem;
   font-size: 0.34rem;
@@ -27,7 +27,7 @@
   z-index: 2;
   top: 1.7rem;
   left: 0.4rem;
-  font-size: 0.28rem;
+  font-size: 0.16rem;
   color: #fff;
 }
 .rank .newList .head:after {
@@ -81,12 +81,19 @@
 }
 .rank .newList ul li .center .title {
   width: 5.7rem;
+  height: 0.7rem;
   overflow: hidden;
   font-size: 0.34rem;
   line-height: 0.7rem;
 }
-.rank .newList ul li .center .des {
+.rank .newList ul li .center .title span {
   color: #888;
+}
+.rank .newList ul li .center .des {
+  width: 5.7rem;
+  color: #888;
+  height: 0.28rem;
+  overflow: hidden;
   font-size: 12px;
 }
 .rank .newList ul li .center .des i {
@@ -110,4 +117,13 @@
   margin: 0.33rem auto;
   background: url('../images/index_icon_2x.png') no-repeat;
   background-position: -0.48rem 0;
+}
+.rank footer {
+  width: 100%;
+  height: 1.1rem;
+  background-color: #fff;
+  font-size: 0.28rem;
+  color: #999;
+  text-align: center;
+  line-height: 1.1rem;
 }

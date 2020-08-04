@@ -1,5 +1,6 @@
 .index {
   width: 7.5rem;
+  overflow: hidden;
 }
 .index .head {
   padding: 0 0.2rem;
@@ -44,11 +45,11 @@
 .index .nav li a {
   display: inline-block;
   box-sizing: border-box;
-  line-height: 0.68rem;
+  line-height: 0.7rem;
   padding: 0 0.1rem;
   color: #333;
 }
 .index .nav li a.select {
   color: #e6180d;
-  border-bottom: 0.045rem solid #e6180d;
+  border-bottom: 0.05rem solid #e6180d;
 }

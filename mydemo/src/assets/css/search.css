@@ -1,6 +1,7 @@
 .search {
   width: 7.5rem;
   box-sizing: border-box;
+  overflow: hidden;
 }
 .search .newList .head {
   position: relative;
@@ -36,6 +37,52 @@
 .search .newList .head input::-webkit-input-placeholder {
   color: #999;
 }
+.search .newList .searchCon {
+  width: 100%;
+}
+.search .newList .searchCon .title {
+  margin: 0.2rem 0 0.2rem 0.2rem;
+  font-size: 0.24rem;
+  color: #666;
+}
+.search .newList .searchCon .hotword {
+  width: 100%;
+  padding: 0 0.2rem;
+}
+.search .newList .searchCon .hotword span {
+  display: inline-block;
+  padding: 0 0.2rem;
+  line-height: 0.6rem;
+  border: 1px solid #d3d4da;
+  border-radius: 0.64rem;
+  margin: 0 0.2rem 0.2rem 0;
+  font-size: 0.28rem;
+  color: #333;
+}
+.search .newList .searchCon .hotwordList {
+  width: 100%;
+  background-color: #fff;
+}
+.search .newList .searchCon .hotwordList li {
+  width: 100%;
+  height: 0.9rem;
+  line-height: 0.9rem;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.15);
+  color: #333;
+  box-sizing: border-box;
+  font-size: 0.28rem;
+}
+.search .newList .searchCon .hotwordList li span {
+  display: inline-block;
+  width: 5.9rem;
+  height: 100%;
+}
+.search .newList .searchCon .hotwordList li i {
+  display: inline-block;
+  width: 0.8rem;
+  height: 100%;
+  text-align: center;
+}
 .search .newList .content .best {
   width: 100%;
   background-color: #fff;
@@ -49,10 +96,11 @@
 .search .newList .content .best .title {
   margin: 0.1rem 0 0 0.2rem;
   font-size: 0.24rem;
-  margin-top: 0.1rem;
+  color: #666;
 }
 .search .newList .content .best .singer {
   width: 7.5rem;
+  box-sizing: border-box;
   height: 1.32rem;
   line-height: 1.32rem;
   margin-left: 0.25rem;
@@ -60,6 +108,7 @@
 }
 .search .newList .content .best .singer p {
   display: inline-block;
+  width: 5.5rem;
 }
 .search .newList .content .best .singer p span {
   color: #507daf;
@@ -69,6 +118,7 @@
 }
 .search .newList .content .best .album {
   width: 7.5rem;
+  box-sizing: border-box;
   height: 1.32rem;
   line-height: 1.32rem;
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.15);
@@ -80,6 +130,12 @@
   display: inline-block;
   height: 0.8rem;
   line-height: 0.4rem;
+  width: 5.5rem;
+}
+.search .newList .content .best .album .center p {
+  width: 5.5rem;
+  height: 0.4rem;
+  overflow: hidden;
 }
 .search .newList .content .best .album .center span {
   color: #507daf;
@@ -104,10 +160,20 @@
   height: 1.1rem;
 }
 .search .newList .content ul li .left .title {
+  width: 6.46rem;
+  height: 0.7rem;
+  overflow: hidden;
   font-size: 0.34rem;
   line-height: 0.7rem;
 }
+.search .newList .content ul li .left .title span {
+  color: #888;
+}
 .search .newList .content ul li .left .des {
+  width: 6.46rem;
+  height: 0.3rem;
+  line-height: 0.35rem;
+  overflow: hidden;
   color: #888;
   font-size: 12px;
 }

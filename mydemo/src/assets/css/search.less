@@ -1,7 +1,7 @@
 .search{
     width: 7.5rem;
     box-sizing: border-box;
-    
+    overflow: hidden;
     .newList{
         .head{
             position: relative;
@@ -39,30 +39,82 @@
             }
             
         }
+        .searchCon{
+            width: 100%;
+            .title{
+                margin: 0.2rem 0 0.2rem 0.2rem;
+                font-size: 0.24rem;
+                color: #666;
+            }
+            .hotword{
+                width: 100%;
+                padding: 0 0.2rem;
+                span{
+                    display: inline-block;
+                    padding: 0 0.2rem;
+                    line-height: 0.6rem;
+                    border: 1px solid #d3d4da;
+                    border-radius: 0.64rem;
+                    margin: 0 0.2rem 0.2rem 0;
+                    font-size: 0.28rem;
+                    color: #333;
+                }
+
+            }
+            .hotwordList{
+                width: 100%;
+                background-color: #fff;
+                li{
+                    width: 100%;
+                    height: 0.9rem;
+                    line-height: 0.9rem;
+                    border-bottom:0.5px solid rgba(0,0,0,.15) ;
+                    color: #333;
+                    box-sizing: border-box;
+                    font-size: 0.28rem;
+                    span{
+                        display: inline-block;
+                        width: 5.9rem;
+                        height: 100%;
+                    }
+                    i{
+                        display: inline-block;
+                        width: 0.8rem;
+                        height: 100%;
+                        text-align: center;
+                    }
+
+                }
+            }
+
+        }
         .content{
+            // display: none;
             .best{
                 width: 100%;
                 background-color: #fff;
                 font-size: 0.34rem;
+                
                 img{
                     width: 1rem;
                     height: 1rem;
                     margin-right: 0.2rem;
                 }
                 .title{
-                    // line-height: 0.24rem;
                     margin: 0.1rem 0 0 0.2rem;
                     font-size: 0.24rem;
-                    margin-top: 0.1rem;
+                    color: #666;
                 }
                 .singer{
                     width: 7.5rem;
+                    box-sizing: border-box;
                     height: 1.32rem;
                     line-height:1.32rem ;
                     margin-left:0.25rem ;
                     border-bottom:0.5px solid rgba(0,0,0,.15);
                     p{
                         display: inline-block;
+                        width:5.5rem ;
                         span{
                             color: #507daf;
                         }
@@ -73,6 +125,7 @@
                 }
                 .album{
                     width: 7.5rem;
+                    box-sizing: border-box;
                     height: 1.32rem;
                     line-height:1.32rem ;
                     border-bottom:0.5px solid rgba(0,0,0,.15);
@@ -83,8 +136,12 @@
                         display: inline-block;
                         height: 0.8rem;
                         line-height: 0.4rem;
-                        // margin-top: 0.2rem;
-                        
+                        width:5.5rem ;
+                        p{
+                            width:5.5rem ;
+                            height: 0.4rem;
+                            overflow: hidden;
+                        }
                         span{
                             color: #507daf;
                             font-size: 0.24rem;
@@ -110,10 +167,21 @@
                     overflow: hidden;
                     height: 1.1rem;
                     .title{
+                        width:6.46rem ;
+                        height: 0.7rem;
+                        overflow: hidden;
                         font-size: 0.34rem;
                         line-height: 0.7rem;
+                        span{
+                            color: #888;
+                        }
                     }
                     .des{
+                        width:6.46rem ;
+                        height: 0.3rem;
+                        line-height: 0.35rem;
+
+                        overflow: hidden;
                         color: #888;
                         font-size: 12px;
                         i{
